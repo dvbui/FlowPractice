@@ -4,9 +4,10 @@
 #include <cstring>
 #include <queue>
 #include <iterator>
+#include <map>
 
 using namespace std;
-
+const long long oo = 1e18;
 
 /**
  * This piece of code is taken from https://cp-algorithms.com/graph/dinic.html
@@ -49,6 +50,19 @@ public:
         adj[u].push_back(m + 1);
         m += 2;
     }
+    
+    void resetAndChangeDays(int volunteer,int newValue)
+    {
+		while (!q.empty()) q.pop();
+		for (auto it=edges.begin(); it!=edges.end(); it=next(it,2))
+		{
+			if ((*it).v==0 and 1<=(*it).u and (*it).u<=volunteer)
+				(*it).cap = newValue;
+			
+		}
+		for (auto it=edges.begin(); it!=edges.end(); it++)
+			(*it).flow = 0;
+	}
 
     bool bfs() {
         while (!q.empty()) {
@@ -69,8 +83,10 @@ public:
     long long dfs(int v, long long pushed) {
         if (pushed == 0)
             return 0;
+        
         if (v == t)
             return pushed;
+        
         for (int& cid = ptr[v]; cid < (int)adj[v].size(); cid++) {
             int id = adj[v][cid];
             int u = edges[id].u;
@@ -102,52 +118,83 @@ public:
         return f;
     }
     
-    void printResult()
+    
+    map<int,map<int,int>> getResult(int volunteer)
     {
-		for (auto it=edges.begin(); it!=edges.end(); it++)
-		//if ((*it).flow>0)
+		map<int,map<int,int>> res;
+		for (auto it=edges.begin(); it!=edges.end(); it+=2)
 		{
-			cout << (*it).v+1 << ' ' << (*it).u+1 << ' ' << (*it).cap << ' ' << (*it).flow << '\n';
+			if (1<=(*it).v and (*it).v<=volunteer)
+				res[(*it).v][(*it).u-volunteer] = (*it).flow;
 		}
+		return res;
 	}
 } G;
-const int maxn = 1000;
-int n;
-int a[maxn+1];
 
-int gcd(int x,int y)
+const int maxm = 60;
+const int maxn = 31;
+int m,n;
+string name[maxm+1];
+vector<int> days[maxm+1];
+
+void initFlow()
 {
-	if (x%y==0) return y;
-	else return gcd(y,x%y);
+	G = Dinic(2+m+n,0,m+n+1);
+	for (int i=1; i<=m; i++)
+		G.add_edge(0,i,oo);
+	for (int i=1; i<=m; i++)
+	for (auto it=days[i].begin(); it!=days[i].end(); it++)
+		G.add_edge(i,m+(*it),1);
+	for (int j=m+1; j<=m+n; j++)
+		G.add_edge(j,m+n+1,2);
 }
 
+bool check(int x)
+{
+	G.resetAndChangeDays(m,x);
+	int res = G.flow();
+	//cout << x << ' ' << res << '\n';
+	return (res==2*n);
+}
 int main()
 {
 	ios_base::sync_with_stdio(0);
 	//freopen("input.txt","r",stdin);
 	//freopen("output.txt","w",stdout);
-	cin >> n;
-	int mini = 1;
-	int maxi = 1;
-	for (int i=1; i<=n; i++)
+	cin >> m >> n;
+	for (int i=1; i<=m; i++)
 	{
-		cin >> a[i];
-		if (a[i]<a[mini]) mini = i;
-		if (a[i]>a[maxi]) maxi = i;
-	}
-	G = Dinic(n,mini-1,maxi-1);
-	
-	for (int i=1; i<=n; i++)
-	for (int j=i+1; j<=n; j++)
-	{
-		int f=gcd(a[i],a[j]);
-		if (f>1)
+		int d;
+		cin >> name[i] >> d;
+		for (int j=1; j<=d; j++)
 		{
-			G.add_edge(i-1,j-1,f);
-			G.add_edge(j-1,i-1,f);
-		}
+			int k;
+			cin >> k;
+			days[i].push_back(k);
+		}	
 	}
 	
-	cout << G.flow() << '\n';
+	initFlow();
+	
+	int dau=0,cuoi=n;
+	do
+	{
+		int giua=(dau+cuoi)/2;
+		if (check(giua)) cuoi=giua-1;
+		else dau=giua+1;
+	}
+	while (dau<=cuoi);
+	
+	cout << dau << '\n';
+	G.resetAndChangeDays(m,dau);
+	G.flow();
+	map<int,map<int,int>> res=G.getResult(m);
+	for (int i=1; i<=n; i++)
+	{
+		cout << "Day " << i << ": ";
+		for (int j=1; j<=m; j++)
+			if (res[j][i]) cout << name[j] << ' ';
+		cout << '\n';
+	}
 	return 0;
 }
