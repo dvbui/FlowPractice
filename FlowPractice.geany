@@ -20,13 +20,14 @@ indent_mode=2
 [project]
 name=FlowPractice
 base_path=/home/bui/Documents/FlowPractice
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
+current_page=-1
 
 [VTE]
-last_dir=/home/bui/Documents
+last_dir=/home/bui/Documents/FlowPractice
