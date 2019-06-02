@@ -70,6 +70,13 @@ Ta tưởng tượng luồng trên mạng là các dòng thông tin và nghĩ ra
 
 Ảnh được lấy từ bản solution tiếng Anh (bài J trong này: http://2016.nwerc.eu/nwerc2016slides.pdf)
 
+## piano
+Độ khó: 4.3
+
+Lưu ý: Các thợ sửa piano làm việc theo cặp, nên ta có thể ghép hai thợ sửa piano vào làm một để điều kiện không có hai thợ nào làm việc vào cuối tuần thành không có thợ nào làm việc vào cuối tuần.
+
+
+
 
 
 
