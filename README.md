@@ -64,4 +64,12 @@ Bài này hơi khó đọc nên mình tóm tắt ngắn gọn lại đề bài c
 
 Cho Q hàng đợi, hàng đợi thứ i có dung lượng c(i) thông tin, và N cơ hội để truyền thông tin về Trái Đất, trước mỗi cơ hội mỗi hàng đợi sẽ nhận được một lượng thông tin nhất định (trong lúc nhận thông tin các hàng đợi không được phép truyền về), và ở mỗi cơ hội, các hàng đợi sẽ chỉ có thể truyền về tổng cộng d(i) thông tin.
 
+Ta tưởng tượng luồng trên mạng là các dòng thông tin và nghĩ ra mạng dưới đây (thực ra mình nghĩ được cũng là do nó thuộc một dạng mà mình đã làm rồi, nếu bạn nào chưa học luồng mà chưa tưởng tượng hay nghĩ ra được thì cũng không sao cả :3)
+
+(insert ảnh từ solution thật)
+
+Ảnh được lấy từ bản solution tiếng Anh (bài J trong này: http://2016.nwerc.eu/nwerc2016slides.pdf)
+
+
+
 
