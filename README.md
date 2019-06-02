@@ -37,9 +37,17 @@ Mở rộng:
 
 Thuật luồng mình sử dụng trong bài này: Đẩy tiền luồng + đẩy nhãn theo khe
 ## dutyscheduler
-Đây là dạng bài ghép cặp, trong đó các phần tử được chia thành hai tập A và tập B, mỗi phần tử của tập A có thể ghép với n phần tử của tập B, mỗi phần tử của tập B có thể được ghép với m phần tử của tập A. Đây là một dạng bài có thể được giải quyết bằng luồng cực đại trên mạng.
+Đầu tiên, ta thấy ta cần phải tối thiểu số ngày tối đa mà một RA phải phục vụ cho trường. Sau một hồi suy nghĩ, ta thấy ngay được ta có thể sử dụng thuật toán tìm kiếm nhị phân để cố định số ngày tối đa mà một RA phải phục vụ. (Các bài luồng rất hay có kiểu chặt nhị phân như thế này, các bạn nên lưu ý).
+
+Vấn đề là ta kiểm tra số ngày tối đa mà một RA phải phục vụ có hợp lệ hay không như thế nào?
+
+Ta có thể quy vấn đề trên về dạng bài ghép cặp, trong đó các phần tử được chia thành hai tập A và tập B, mỗi phần tử của tập A có thể ghép với n phần tử của tập B, mỗi phần tử của tập B có thể được ghép với m phần tử của tập A. Ngoài ra, một cặp phần tử một trong tập A và một trong tập B chỉ được ghép với nhau một lần. Đây là một dạng bài có thể được giải quyết bằng luồng cực đại trên mạng.
 
 Để giải bài toán tổng quát, ta xây dựng mạng như hình dưới đây:
+
 (insert hình ảnh mạng mình sẽ vẽ sau)
+
+rồi chạy thuật toán tìm luồng cực đại. Để kiểm tra xem một cặp phần tử một trong tập A và một trong tập B có được nối với nhau hay không, ta kiểm tra xem có luồng đi qua cạnh tương ứng với phần tử đó hay không.
+
 
 
