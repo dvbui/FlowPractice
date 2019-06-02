@@ -57,4 +57,11 @@ Quay trở lại bài toán chính, ta có thể coi mỗi RA là một phần t
 
 Sau khi tìm được số n thích hợp bằng thuật toán tìm kiếm nhị phân, ta xây dựng lại mạng và chạy thuật luồng một lần cuối cùng. Sau đó, bạn chỉ việc kiểm tra xem một ngày được nối với những RA nào và in ra kết quả.
 
+## jupiter
+Độ khó: 5.1
+
+Bài này hơi khó đọc nên mình tóm tắt ngắn gọn lại đề bài cho các bạn:
+
+Cho Q hàng đợi, hàng đợi thứ i có dung lượng c(i) thông tin, và N cơ hội để truyền thông tin về Trái Đất, trước mỗi cơ hội mỗi hàng đợi sẽ nhận được một lượng thông tin nhất định (trong lúc nhận thông tin các hàng đợi không được phép truyền về), và ở mỗi cơ hội, các hàng đợi sẽ chỉ có thể truyền về tổng cộng d(i) thông tin.
+
 
