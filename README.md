@@ -5,6 +5,7 @@
 Đây là bài dùng để kiểm tra độ đúng đắn của cách cài đặt thuật tìm luồng cực đại trên mạng của bạn. Các bạn chỉ cần xây dựng luồng theo như đề bài và in ra các cạnh có luồng đi qua lớn hơn 0.
 
 Thuật luồng mình sử dụng để AC bài này là thuật đẩy tiền luồng với mẹo cài đặt đẩy nhãn theo khe được trình bày trong sách Tài liệu giáo khoa chuyên Tin quyển 2. 
+
 ## mazemovement
 Độ khó: 3.0
 
@@ -33,3 +34,5 @@ Một số lưu ý trong bài này:
 Mở rộng: 
 * Để tìm lát cắt cực tiểu, ta tìm các cạnh nối giữa một đỉnh thuộc tập U và một đỉnh không thuộc tập U
 * Tổng trọng số các cạnh trong lát cắt cực tiểu bằng giá trị luồng cực đại trên mạng.
+
+Thuật luồng mình sử dụng trong bài này: Đẩy tiền luồng + đẩy nhãn theo khe
