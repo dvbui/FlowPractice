@@ -37,6 +37,8 @@ Mở rộng:
 
 Thuật luồng mình sử dụng trong bài này: Đẩy tiền luồng + đẩy nhãn theo khe
 ## dutyscheduler
+Độ khó: 3.1
+
 Đầu tiên, ta thấy ta cần phải tối thiểu số ngày tối đa mà một RA phải phục vụ cho trường. Sau một hồi suy nghĩ, ta thấy ngay được ta có thể sử dụng thuật toán tìm kiếm nhị phân để cố định số ngày tối đa mà một RA phải phục vụ. (Các bài luồng rất hay có kiểu chặt nhị phân như thế này, các bạn nên lưu ý).
 
 Vấn đề là ta kiểm tra số ngày tối đa mà một RA phải phục vụ có hợp lệ hay không như thế nào?
@@ -49,5 +51,10 @@ Ta có thể quy vấn đề trên về dạng bài ghép cặp, trong đó các
 
 rồi chạy thuật toán tìm luồng cực đại. Để kiểm tra xem một cặp phần tử một trong tập A và một trong tập B có được nối với nhau hay không, ta kiểm tra xem có luồng đi qua cạnh tương ứng với phần tử đó hay không.
 
+Quay trở lại bài toán chính, ta có thể coi mỗi RA là một phần tử trong tập A, mỗi ngày là một phần tử trong tập B. Ta đặt n là số ngày tối đa mà một RA có thể phục vụ và m=2 là số RA mà mỗi ngày cần. Để kiểm tra n có hợp lệ hay không, ta chạy thuật tìm luồng cực đại trên mạng rồi kiểm tra xem cạnh nối từ các đỉnh trong tập B đến đỉnh thu có bão hòa (luồng đi qua bằng khả năng thông qua) hay không.
+
+(Mỗi lần kiểm tra bạn có thể xây dựng lại mạng, hoặc khởi tạo lại các giá trị quan trọng trong mạng đang có)
+
+Sau khi tìm được số n thích hợp bằng thuật toán tìm kiếm nhị phân, ta xây dựng lại mạng và chạy thuật luồng một lần cuối cùng. Sau đó, bạn chỉ việc kiểm tra xem một ngày được nối với những RA nào và in ra kết quả.
 
 
