@@ -36,3 +36,10 @@ Mở rộng:
 * Tổng trọng số các cạnh trong lát cắt cực tiểu bằng giá trị luồng cực đại trên mạng.
 
 Thuật luồng mình sử dụng trong bài này: Đẩy tiền luồng + đẩy nhãn theo khe
+## dutyscheduler
+Đây là dạng bài ghép cặp, trong đó các phần tử được chia thành hai tập A và tập B, mỗi phần tử của tập A có thể ghép với n phần tử của tập B, mỗi phần tử của tập B có thể được ghép với m phần tử của tập A. Đây là một dạng bài có thể được giải quyết bằng luồng cực đại trên mạng.
+
+Để giải bài toán tổng quát, ta xây dựng mạng như hình dưới đây:
+(insert hình ảnh mạng mình sẽ vẽ sau)
+
+
